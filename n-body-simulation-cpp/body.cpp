@@ -37,7 +37,7 @@ glm::vec3 Body::get_orientation() const {
 	return orientation;
 }
 
-float Body::get_distance_between_bodies(Body& other) const
+float Body::get_distance_between_bodies(const Body & other) const
 {
 	if (*this == other) {
 		return 0.0f;
@@ -52,7 +52,7 @@ float Body::get_distance_between_bodies(Body& other) const
 	}
 }
 
-glm::vec3 Body::get_vector_between_bodies(Body& other) const
+glm::vec3 Body::get_vector_between_bodies(const Body & other) const
 {
 	if (*this == other) {
 		return glm::vec3{ 0,0,0 };
@@ -110,5 +110,10 @@ int Body::get_n_dims() const
 
 bool Body::operator==(const Body& other) const
 {
-	return this == &other;
+	return (this == &other);
+}
+
+bool Body::operator!=(const Body& other) const
+{
+	return !(this == &other);
 }

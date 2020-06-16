@@ -21,8 +21,8 @@ public:
 	glm::vec3 get_position() const;
 	glm::vec3 get_velocity() const;
 	glm::vec3 get_orientation() const;
-	float get_distance_between_bodies(Body& other) const;
-	glm::vec3 get_vector_between_bodies(Body& other) const;
+	float get_distance_between_bodies(const Body & other) const;
+	glm::vec3 get_vector_between_bodies(const Body & other) const;
 	float get_force_magnitude_between_bodies(Body& other) const;
 	glm::vec3 get_force_this_time_step() const;
 
@@ -34,6 +34,8 @@ public:
 	void add_force(glm::vec3 force);
 
 	bool operator==(const Body& other) const;
+	bool operator!=(const Body& other) const;
+
 	int get_n_dims() const;
 };
 

@@ -9,6 +9,9 @@
 int main() {
     std::vector<Body> bodies { Body(), Body() };
 
+    auto pos = glm::vec3( -1.0f, 0.0f, 0.0f );
+    pos.x = -1; pos.y = 0; pos.z = 0;
+
     bodies[0].set_position(glm::vec3(-1, 0, 0));
     bodies[1].set_position(glm::vec3(1, 0, 0));
 

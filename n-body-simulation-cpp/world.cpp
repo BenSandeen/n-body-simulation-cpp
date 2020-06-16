@@ -43,13 +43,17 @@ float World::get_distance_between_bodies(const Body& start, const Body& finish)
 void World::apply_forces()
 {
     // Accumulates all the forces for each body for this timestep
-    for (Body body : bodies)
+    for (Body& body : bodies)
     {
-        for (Body other_body : bodies) {
-            float force = body.get_force_magnitude_between_bodies(other_body);
-            glm::vec3 direction = body.get_vector_between_bodies(other_body);
-            body.add_force(force * direction);
-            other_body.add_force(-force * direction);
+        for (Body& other_body : bodies.begin) {
+            if (body != other_body)
+            {
+                float force = body.get_force_magnitude_between_bodies(other_body);
+                glm::vec3 direction = body.get_vector_between_bodies(other_body);
+                direction = glm::normalize(direction);
+                body.add_force(force * direction);
+                other_body.add_force(-force * direction);
+            }
         }
     }
 }
