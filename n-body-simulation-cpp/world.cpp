@@ -45,7 +45,7 @@ void World::apply_forces()
     // Accumulates all the forces for each body for this timestep
     for (Body& body : bodies)
     {
-        for (Body& other_body : bodies.begin) {
+        for (Body& other_body : bodies) {
             if (body != other_body)
             {
                 float force = body.get_force_magnitude_between_bodies(other_body);
